@@ -14,6 +14,8 @@ lua require('plugins.lualine')
 lua require('plugins.nvim-dap')
 " 高亮、折叠、选择
 lua require('plugins.nvim-treesitter')
+" 括号配对
+lua require('plugins.nvim-autopairs')
 
 
 " 打开文件树
