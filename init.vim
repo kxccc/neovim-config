@@ -24,6 +24,8 @@ lua require('plugins.neogit')
 lua require('plugins.telescope')
 " 缩进线
 lua require('plugins.indent-blankline')
+" 终端
+lua require('plugins.toggleterm')
 
 
 " 终端返回普通模式
