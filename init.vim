@@ -20,10 +20,10 @@ lua require('plugins.nvim-autopairs')
 lua require('plugins.gitsigns')
 " Git 管理
 lua require('plugins.neogit')
+" 文件搜索
+lua require('plugins.telescope')
 
 
-" 打开文件树
-noremap <C-e> <Esc>:NvimTreeFindFile<CR>
 " 终端返回普通模式
 tnoremap <Esc> <C-\><C-n>
 " 显示行号
