@@ -16,6 +16,8 @@ lua require('plugins.nvim-dap')
 lua require('plugins.nvim-treesitter')
 " 括号配对
 lua require('plugins.nvim-autopairs')
+" Git 比对
+lua require('plugins.gitsigns')
 
 
 " 打开文件树
