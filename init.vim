@@ -18,6 +18,8 @@ lua require('plugins.nvim-treesitter')
 lua require('plugins.nvim-autopairs')
 " Git 比对
 lua require('plugins.gitsigns')
+" Git 管理
+lua require('plugins.neogit')
 
 
 " 打开文件树

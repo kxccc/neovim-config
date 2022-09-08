@@ -35,4 +35,6 @@ return require('packer').startup(function(use)
     tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   }
 
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+
 end)
