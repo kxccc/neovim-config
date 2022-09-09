@@ -4,8 +4,6 @@ lua require('plugins')
 lua require('plugins.tokyonight')
 " 文件树
 lua require('plugins.nvim-tree')
-" 代码补全、格式化
-lua require('plugins.coc')
 " buffer 栏
 lua require('plugins.bufferline')
 " 底栏
@@ -26,6 +24,12 @@ lua require('plugins.telescope')
 lua require('plugins.indent-blankline')
 " 终端
 lua require('plugins.toggleterm')
+" mason
+lua require('plugins.mason')
+" 自动补全
+lua require('plugins.nvim-cmp')
+" 格式化
+lua require('plugins.formatter')
 
 
 " 终端返回普通模式
