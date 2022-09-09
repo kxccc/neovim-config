@@ -1,3 +1,7 @@
+vim.cmd([[
+nnoremap <leader>f :Format<CR>
+]])
+
 -- Utilities for creating configurations
 local util = require("formatter.util")
 

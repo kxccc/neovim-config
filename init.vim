@@ -30,6 +30,8 @@ lua require('plugins.mason')
 lua require('plugins.nvim-cmp')
 " 格式化
 lua require('plugins.formatter')
+" 错误栏
+lua require('plugins.trouble')
 
 
 " 终端返回普通模式
