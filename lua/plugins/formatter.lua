@@ -1,5 +1,6 @@
 vim.cmd([[
-nnoremap <leader>f :Format<CR>
+nnoremap <leader>t :Format<CR>
+vnoremap <leader>t :Format<CR>
 ]])
 
 -- Utilities for creating configurations
