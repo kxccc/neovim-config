@@ -1,21 +1,23 @@
 local dap = require("dap")
 
-dap.adapters.cppdbg = {
-	id = "cppdbg",
-	type = "executable",
-	command = vim.fn.stdpath("data") .. "/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
+dap.adapters.codelldb = {
+	type = "server",
+	port = "13000",
+	executable = {
+		command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/extension/adapter/codelldb",
+		args = { "--port", "13000" },
+	},
 }
 
 dap.configurations.cpp = {
 	{
 		name = "Launch file",
-		type = "cppdbg",
+		type = "codelldb",
 		request = "launch",
 		program = function()
 			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/a.out", "file")
 		end,
 		cwd = "${workspaceFolder}",
-		MIMode = "lldb",
 	},
 }
 
