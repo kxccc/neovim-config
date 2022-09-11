@@ -25,6 +25,10 @@ require("formatter").setup({
 			require("formatter.filetypes.typescript").clangformat,
 		},
 
+		css = {
+			require("formatter.filetypes.css").stylefmt,
+		},
+
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
 		},
