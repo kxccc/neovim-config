@@ -1,3 +1,11 @@
+vim.cmd([[
+nnoremap <silent> <f9> :lua require'dap'.toggle_breakpoint()<cr>
+nnoremap <silent> <f5> :lua require'dap'.continue()<cr>
+nnoremap <silent> <f10> :lua require'dap'.step_over()<cr>
+nnoremap <silent> <f11> :lua require'dap'.step_into()<cr>
+nnoremap <silent> <f12> :lua require'dap'.step_out()<cr>
+]])
+
 local dap = require("dap")
 
 dap.adapters.codelldb = {
