@@ -71,4 +71,6 @@ return require("packer").startup(function(use)
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 	})
+
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 end)

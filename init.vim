@@ -34,10 +34,14 @@ lua require('plugins.formatter')
 lua require('plugins.trouble')
 " lsp 美化
 lua require('plugins.lspsaga')
+" dap ui
+lua require('plugins.nvim-dap-ui')
 
 
 " 终端返回普通模式
 tnoremap <Esc> <C-\><C-n>
+" 切换窗口
+nnoremap <silent> <Space> <C-w>
 " 显示行号
 set number
 " show existing tab with 2 spaces width
