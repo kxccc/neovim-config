@@ -38,6 +38,8 @@ lua require('plugins.lspsaga')
 lua require('plugins.nvim-dap-ui')
 " dap text
 lua require('plugins.nvim-dap-virtual-text')
+" js ts 调试
+lua require('plugins.nvim-dap-vscode-js')
 
 
 " 终端返回普通模式

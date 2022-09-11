@@ -12,8 +12,17 @@ require("formatter").setup({
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 		},
+
 		yaml = {
 			require("formatter.filetypes.yaml").pyaml,
+		},
+
+		javascript = {
+			require("formatter.filetypes.javascript").clangformat,
+		},
+
+		typescript = {
+			require("formatter.filetypes.typescript").clangformat,
 		},
 
 		["*"] = {
