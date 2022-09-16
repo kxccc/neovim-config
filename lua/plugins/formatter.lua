@@ -29,6 +29,10 @@ require("formatter").setup({
 			require("formatter.filetypes.css").stylefmt,
 		},
 
+		json = {
+			require("formatter.filetypes.json").fixjson,
+		},
+
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
 		},
