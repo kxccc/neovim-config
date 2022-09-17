@@ -33,6 +33,10 @@ require("formatter").setup({
 			require("formatter.filetypes.json").prettier,
 		},
 
+		html = {
+			require("formatter.filetypes.html").prettier,
+		},
+
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
 		},
