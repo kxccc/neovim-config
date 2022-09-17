@@ -14,23 +14,23 @@ require("formatter").setup({
 		},
 
 		yaml = {
-			require("formatter.filetypes.yaml").pyaml,
+			require("formatter.filetypes.yaml").prettier,
 		},
 
 		javascript = {
-			require("formatter.filetypes.javascript").clangformat,
+			require("formatter.filetypes.javascript").prettier,
 		},
 
 		typescript = {
-			require("formatter.filetypes.typescript").clangformat,
+			require("formatter.filetypes.typescript").prettier,
 		},
 
 		css = {
-			require("formatter.filetypes.css").stylefmt,
+			require("formatter.filetypes.css").prettier,
 		},
 
 		json = {
-			require("formatter.filetypes.json").fixjson,
+			require("formatter.filetypes.json").prettier,
 		},
 
 		["*"] = {
