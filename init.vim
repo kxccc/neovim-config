@@ -22,8 +22,6 @@ lua require('plugins.neogit')
 lua require('plugins.telescope')
 " 缩进线
 lua require('plugins.indent-blankline')
-" 终端
-lua require('plugins.toggleterm')
 " mason
 lua require('plugins.mason')
 " 自动补全
