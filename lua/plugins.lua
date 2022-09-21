@@ -45,8 +45,6 @@ return require("packer").startup(function(use)
 
 	use("lukas-reineke/indent-blankline.nvim")
 
-	use({ "akinsho/toggleterm.nvim", tag = "*" })
-
 	use({ "williamboman/mason.nvim" })
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason-lspconfig.nvim")
