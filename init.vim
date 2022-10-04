@@ -46,6 +46,9 @@ lua require('plugins.auto-save')
 tnoremap <Esc> <C-\><C-n>
 " 切换窗口
 nnoremap <silent> <Space> <C-w>
+" 关闭缓冲区
+nnoremap <silent> <leader>w :NvimTreeClose<cr>:bd<cr>
+
 " 显示行号
 set number
 " show existing tab with 2 spaces width
