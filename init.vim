@@ -47,7 +47,7 @@ tnoremap <Esc> <C-\><C-n>
 " 切换窗口
 nnoremap <silent> <Space> <C-w>
 " 关闭缓冲区
-nnoremap <silent> <leader>w :NvimTreeClose<cr>:bd<cr>
+nnoremap <silent> <leader>w :bd<cr>:bp<cr>
 
 " 显示行号
 set number
