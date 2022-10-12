@@ -24,6 +24,7 @@ require("dap").configurations["typescript"] = {
 		runtimeExecutable = "ts-node",
 		resolveSourceMapLocations = {
 			"${workspaceFolder}/**",
+			"!**/node_modules/**",
 		},
 	},
 }
