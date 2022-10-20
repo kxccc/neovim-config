@@ -10,7 +10,7 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
 
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -32,7 +32,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"lewis6991/gitsigns.nvim",
-		tag = "release", -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+		tag = "release",
 	})
 
 	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
