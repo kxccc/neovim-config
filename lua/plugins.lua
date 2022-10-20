@@ -84,4 +84,6 @@ return require("packer").startup(function(use)
 	use({
 		"Pocco81/auto-save.nvim",
 	})
+
+	use("mfussenegger/nvim-jdtls")
 end)
