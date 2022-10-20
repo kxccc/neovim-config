@@ -81,9 +81,5 @@ return require("packer").startup(function(use)
 		run = "npm install --legacy-peer-deps && npm run compile",
 	})
 
-	use({
-		"Pocco81/auto-save.nvim",
-	})
-
 	use("mfussenegger/nvim-jdtls")
 end)
