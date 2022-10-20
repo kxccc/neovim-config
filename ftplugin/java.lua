@@ -1,4 +1,7 @@
-local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p") .. ".jdtls"
+-- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+local workspace_dir = "/Users/czc/work/jdtls/" .. project_name
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
