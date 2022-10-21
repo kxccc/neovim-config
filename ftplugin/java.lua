@@ -63,6 +63,7 @@ local config = {
 		-- Remove the option if you do not want that.
 		-- You can use the `JdtHotcodeReplace` command to trigger it manually
 		require("jdtls").setup_dap({ hotcodereplace = "auto" })
+		require("jdtls.setup").add_commands()
 	end,
 }
 
