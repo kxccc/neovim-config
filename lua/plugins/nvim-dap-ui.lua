@@ -1,5 +1,8 @@
 require("dapui").setup()
 
+local keymap = vim.keymap.set
+keymap("n", "<leader>d", ":lua require('dapui').toggle()<cr>", { silent = true })
+
 local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	vim.cmd([[
