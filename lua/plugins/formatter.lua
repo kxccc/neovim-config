@@ -37,6 +37,12 @@ require("formatter").setup({
 			require("formatter.filetypes.html").prettier,
 		},
 
+		java = {
+			function()
+				vim.lsp.buf.format()
+			end,
+		},
+
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,
 		},
