@@ -18,7 +18,7 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({ "windwp/nvim-autopairs" })
+	use("windwp/nvim-autopairs")
 
 	use({ "lewis6991/gitsigns.nvim", tag = "release" })
 
@@ -28,7 +28,7 @@ return require("packer").startup(function(use)
 
 	use("lukas-reineke/indent-blankline.nvim")
 
-	use({ "williamboman/mason.nvim" })
+	use("williamboman/mason.nvim")
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason-lspconfig.nvim")
 
@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 
-	use({ "mhartington/formatter.nvim" })
+	use("mhartington/formatter.nvim")
 
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
@@ -60,5 +60,5 @@ return require("packer").startup(function(use)
 
 	use("mfussenegger/nvim-jdtls")
 
-	use({ "numToStr/Comment.nvim" })
+	use("numToStr/Comment.nvim")
 end)
