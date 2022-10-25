@@ -82,4 +82,6 @@ return require("packer").startup(function(use)
 	})
 
 	use("mfussenegger/nvim-jdtls")
+
+	use({ "numToStr/Comment.nvim" })
 end)

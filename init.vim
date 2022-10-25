@@ -38,6 +38,8 @@ lua require('plugins.nvim-dap-ui')
 lua require('plugins.nvim-dap-virtual-text')
 " js ts 调试
 lua require('plugins.nvim-dap-vscode-js')
+" 注释
+lua require('plugins.comment')
 
 
 " 终端返回普通模式
