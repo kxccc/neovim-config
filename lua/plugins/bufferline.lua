@@ -1,6 +1,6 @@
 vim.opt.termguicolors = true
 vim.cmd([[
-nnoremap <silent> gl :BufferLinePick<CR>
+nnoremap <silent> gt :BufferLinePick<CR>
 ]])
 require("bufferline").setup({
 	options = {
