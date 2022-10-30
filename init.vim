@@ -51,9 +51,9 @@ nnoremap <silent> <leader>w :bd<cr>:bp<cr>
 
 " 显示行号
 set number
-" show existing tab with 2 spaces width
-set tabstop=2
-" when indenting with '>', use 2 spaces width
-set shiftwidth=2
-" on pressing tab, insert 2 spaces
+" show existing tab with x spaces width
+set tabstop=4
+" when indenting with '>', use x spaces width
+set shiftwidth=4
+" on pressing tab, insert spaces
 set expandtab
