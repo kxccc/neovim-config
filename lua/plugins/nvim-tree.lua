@@ -1,4 +1,2 @@
-vim.cmd([[
-noremap <leader>e <Esc>:NvimTreeToggle<CR>
-]])
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { silent = true, noremap = true })
 require("nvim-tree").setup()

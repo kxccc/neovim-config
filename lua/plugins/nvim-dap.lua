@@ -1,10 +1,8 @@
-vim.cmd([[
-nnoremap <silent> <f9> :lua require'dap'.toggle_breakpoint()<cr>
-nnoremap <silent> <f5> :lua require'dap'.continue()<cr>
-nnoremap <silent> <f10> :lua require'dap'.step_over()<cr>
-nnoremap <silent> <f11> :lua require'dap'.step_into()<cr>
-nnoremap <silent> <f12> :lua require'dap'.step_out()<cr>
-]])
+vim.keymap.set("n", "<f9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<f5>", "<cmd>lua require'dap'.continue()<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<f10>", "<cmd>lua require'dap'.step_over()<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<f11>", "<cmd>lua require'dap'.step_into()<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<f12>", "<cmd>lua require'dap'.step_out()<cr>", { silent = true, noremap = true })
 
 local dap = require("dap")
 

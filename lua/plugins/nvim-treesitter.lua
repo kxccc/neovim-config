@@ -39,10 +39,7 @@ require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 	},
-
-	vim.cmd([[
-    set foldmethod=expr
-    set foldexpr=nvim_treesitter#foldexpr()
-    set foldlevel=99
-  ]]),
 })
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 99
