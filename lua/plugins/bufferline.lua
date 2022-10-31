@@ -1,7 +1,5 @@
 vim.opt.termguicolors = true
-vim.cmd([[
-nnoremap <silent> gt :BufferLinePick<CR>
-]])
+vim.keymap.set("n", "gt", "<cmd>BufferLinePick<CR>", { silent = true, noremap = true })
 require("bufferline").setup({
 	options = {
 		diagnostics = "nvim_lsp",

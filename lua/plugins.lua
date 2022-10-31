@@ -1,66 +1,206 @@
 return require("packer").startup(function(use)
+	-- 插件管理器
 	use("wbthomason/packer.nvim")
 
-	use("folke/tokyonight.nvim")
+	-- 主题
+	use({
+		"folke/tokyonight.nvim",
+		config = function()
+			require("plugins.tokyonight")
+		end,
+	})
 
-	use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+	-- 文件树
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("plugins.nvim-tree")
+		end,
+	})
 
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
+	-- buffer 栏
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v3.*",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("plugins.bufferline")
+		end,
+	})
 
-	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
+	-- 状态栏
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+			opt = true,
+		},
+		config = function()
+			require("plugins.lualine")
+		end,
+	})
 
-	use("mfussenegger/nvim-dap")
+	-- 调试
+	use({
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.nvim-dap")
+		end,
+	})
 
+	-- 高亮、折叠、选择、缩进
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
+		config = function()
+			require("plugins.nvim-treesitter")
+		end,
 	})
 
-	use("windwp/nvim-autopairs")
+	-- 括号补全
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup()
+		end,
+	})
 
-	use({ "lewis6991/gitsigns.nvim", tag = "release" })
+	-- Git 工具
+	use({
+		"lewis6991/gitsigns.nvim",
+		tag = "release",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 
-	use({ "TimUntersberger/neogit", requires = "nvim-lua/plenary.nvim" })
+	-- Git 管理
+	use({
+		"TimUntersberger/neogit",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("plugins.neogit")
+		end,
+	})
 
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = "nvim-lua/plenary.nvim" })
+	-- 文件搜索
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("plugins.telescope")
+		end,
+	})
 
-	use("lukas-reineke/indent-blankline.nvim")
+	-- 缩进线
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("plugins.indent-blankline")
+		end,
+	})
 
-	use("williamboman/mason.nvim")
+	-- mason
+	use({
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end,
+	})
 	use("neovim/nvim-lspconfig")
-	use("williamboman/mason-lspconfig.nvim")
+	use({
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup()
+		end,
+	})
 
+	-- 自动补全
+	use({
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("plugins.nvim-cmp")
+		end,
+	})
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
-
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 
-	use("mhartington/formatter.nvim")
+	-- 格式化
+	use({
+		"mhartington/formatter.nvim",
+		config = function()
+			require("plugins.formatter")
+		end,
+	})
 
-	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	-- 问题栏
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("plugins.trouble")
+		end,
+	})
 
-	use({ "glepnir/lspsaga.nvim", branch = "main" })
+	-- lsp ui
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			require("plugins.lspsaga")
+		end,
+	})
 
-	use({ "rcarriga/nvim-dap-ui", requires = "mfussenegger/nvim-dap" })
+	-- dap ui
+	use({
+		"rcarriga/nvim-dap-ui",
+		requires = "mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.nvim-dap-ui")
+		end,
+	})
 
-	use("theHamsta/nvim-dap-virtual-text")
+	-- dap text
+	use({
+		"theHamsta/nvim-dap-virtual-text",
+		config = function()
+			require("nvim-dap-virtual-text").setup()
+		end,
+	})
 
-	use({ "mxsdev/nvim-dap-vscode-js", requires = "mfussenegger/nvim-dap" })
+	-- js ts 调试
+	use({
+		"mxsdev/nvim-dap-vscode-js",
+		requires = "mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.nvim-dap-vscode-js")
+		end,
+	})
 	use({
 		"microsoft/vscode-js-debug",
 		opt = true,
 		run = "npm install --legacy-peer-deps && npm run compile",
 	})
 
+	-- java 工具
 	use("mfussenegger/nvim-jdtls")
 
-	use("numToStr/Comment.nvim")
+	-- 注释
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
+	-- 快速跳转
 	use("justinmk/vim-sneak")
 end)
