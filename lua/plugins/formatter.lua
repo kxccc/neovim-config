@@ -1,7 +1,4 @@
-vim.cmd([[
-nnoremap <leader>t :Format<CR>
-vnoremap <leader>t :Format<CR>
-]])
+vim.keymap.set({ "n", "v" }, "<leader>t", ":Format<cr>", { noremap = true })
 
 local util = require("formatter.util")
 
