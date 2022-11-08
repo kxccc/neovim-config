@@ -27,5 +27,18 @@ dap.configurations.cpp = {
 	},
 }
 
+dap.configurations.swift = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+			return ".build/debug/" .. project_name
+		end,
+		cwd = "${workspaceFolder}",
+	},
+}
+
 dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
+dap.configurations.objc = dap.configurations.cpp

@@ -26,6 +26,15 @@ require("formatter").setup({
 			end,
 		},
 
+		swift = {
+			function()
+				return {
+					exe = "swiftformat",
+					stdin = "true",
+				}
+			end,
+		},
+
 		cpp = { require("formatter.filetypes.cpp").clangformat },
 
 		c = { require("formatter.filetypes.c").clangformat },
