@@ -203,4 +203,12 @@ return require("packer").startup(function(use)
 
 	-- 快速跳转
 	use("justinmk/vim-sneak")
+
+	-- 缩进检测
+	use({
+		"nmac427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup()
+		end,
+	})
 end)
