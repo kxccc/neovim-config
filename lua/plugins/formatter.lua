@@ -39,6 +39,8 @@ require("formatter").setup({
 
 		c = { require("formatter.filetypes.c").clangformat },
 
+		python = { require("formatter.filetypes.python").autopep8 },
+
 		["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
 	},
 })
