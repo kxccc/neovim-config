@@ -206,4 +206,12 @@ return require("packer").startup(function(use)
 			require("guess-indent").setup()
 		end,
 	})
+
+	-- ssh tmux 复制
+	use({
+		"ojroques/nvim-osc52",
+		config = function()
+			require("plugins.nvim-osc52")
+		end,
+	})
 end)
