@@ -1,73 +1,5 @@
+require("lspsaga").setup()
 local keymap = vim.keymap.set
-local saga = require("lspsaga")
-
-saga.init_lsp_saga({
-	code_action_icon = "",
-	symbol_in_winbar = {
-		in_custom = true,
-	},
-})
--- Example:
-local function get_file_name(include_path)
-	local file_name = require("lspsaga.symbolwinbar").get_file_name()
-	if vim.fn.bufname("%") == "" then
-		return ""
-	end
-	if include_path == false then
-		return file_name
-	end
-	-- Else if include path: ./lsp/saga.lua -> lsp > saga.lua
-	local sep = vim.loop.os_uname().sysname == "Windows" and "\\" or "/"
-	local path_list = vim.split(string.gsub(vim.fn.expand("%:~:.:h"), "%%", ""), sep)
-	local file_path = ""
-	for _, cur in ipairs(path_list) do
-		file_path = (cur == "." or cur == "~") and "" or file_path .. cur .. " " .. "%#LspSagaWinbarSep#>%*" .. " %*"
-	end
-	return file_path .. file_name
-end
-
-local function config_winbar_or_statusline()
-	local exclude = {
-		["terminal"] = true,
-		["toggleterm"] = true,
-		["prompt"] = true,
-		["NvimTree"] = true,
-		["help"] = true,
-	} -- Ignore float windows and exclude filetype
-	if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
-		vim.wo.winbar = ""
-	else
-		local ok, lspsaga = pcall(require, "lspsaga.symbolwinbar")
-		local sym
-		if ok then
-			sym = lspsaga.get_symbol_node()
-		end
-		local win_val = ""
-		win_val = get_file_name(true) -- set to true to include path
-		if sym ~= nil then
-			win_val = win_val .. sym
-		end
-		vim.wo.winbar = win_val
-		-- if work in statusline
-		vim.wo.stl = win_val
-	end
-end
-
-local events = { "BufEnter", "BufWinEnter", "CursorMoved" }
-
-vim.api.nvim_create_autocmd(events, {
-	pattern = "*",
-	callback = function()
-		config_winbar_or_statusline()
-	end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-	pattern = "LspsagaUpdateSymbol",
-	callback = function()
-		config_winbar_or_statusline()
-	end,
-})
 
 -- Lsp finder find the symbol definition implement reference
 -- when you use action in finder like open vsplit then you can
@@ -77,8 +9,8 @@ keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 -- Code action
 keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 
--- Rename
-keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+-- Rename all occurrences of the hovered word for the selected files
+keymap("n", "gr", "<cmd>Lspsaga rename ++project<CR>")
 
 -- Peek Definition
 -- you can edit the definition file in this flaotwindow
@@ -87,27 +19,38 @@ keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 
 -- Show line diagnostics
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+-- You can pass argument ++unfocus to
+-- unfocus the show_line_diagnostics floating window
+keymap("n", "<leader>sl", "<cmd>Lspsaga show_line_diagnostics<CR>")
+
+-- Show cursor diagnostics
+-- Like show_line_diagnostics, it supports passing the ++unfocus argument
+keymap("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
+
+-- Show buffer diagnostics
+keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>")
 
 -- Diagnsotic jump can use `<c-o>` to jump back
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
--- Only jump to error
+-- Diagnostic jump with filters such as only jumping to an error
 keymap("n", "[E", function()
-	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
+	require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end)
 keymap("n", "]E", function()
-	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
+	require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
+end)
 
--- Outline
-keymap("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+-- Toggle outline
+keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
 -- Hover Doc
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+keymap("n", "K", "<cmd>Lspsaga hover_doc ++keep<CR>")
 
--- Float terminal
-keymap("n", "<C-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
--- close floaterm
-keymap("t", "<C-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+-- Call hierarchy
+keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>")
+keymap("n", "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>")
+
+-- Floating terminal
+keymap({ "n", "t" }, "<C-d>", "<cmd>Lspsaga term_toggle<CR>")
