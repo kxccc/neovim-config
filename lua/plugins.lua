@@ -214,4 +214,12 @@ return require("packer").startup(function(use)
 			require("plugins.nvim-osc52")
 		end,
 	})
+
+	-- python 调试
+	use({
+		"mfussenegger/nvim-dap-python",
+		config = function()
+			require("dap-python").setup()
+		end,
+	})
 end)
