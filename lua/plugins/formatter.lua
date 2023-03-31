@@ -41,6 +41,8 @@ require("formatter").setup({
 
 		python = { require("formatter.filetypes.python").autopep8 },
 
+		nix = { require("formatter.filetypes.nix").nixpkgs_fmt },
+
 		["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
 	},
 })
