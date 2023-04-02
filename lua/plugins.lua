@@ -219,7 +219,7 @@ return require("packer").startup(function(use)
 	use({
 		"mfussenegger/nvim-dap-python",
 		config = function()
-			require("dap-python").setup()
+			require("dap-python").setup("~/.nix-profile/bin/python")
 		end,
 	})
 end)
