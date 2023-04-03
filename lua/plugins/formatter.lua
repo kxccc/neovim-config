@@ -42,7 +42,7 @@ return {
 
 				c = { require("formatter.filetypes.c").clangformat },
 
-				python = { require("formatter.filetypes.python").autopep8 },
+				python = { require("formatter.filetypes.python").yapf },
 
 				nix = { require("formatter.filetypes.nix").nixpkgs_fmt },
 
