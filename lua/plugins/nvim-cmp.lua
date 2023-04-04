@@ -8,6 +8,7 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 	},
+	event = { "VeryLazy" },
 	config = function()
 		local has_words_before = function()
 			local line, col = unpack(vim.api.nvim_win_get_cursor(0))

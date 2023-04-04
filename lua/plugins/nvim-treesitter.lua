@@ -3,6 +3,7 @@ return {
 	build = function()
 		require("nvim-treesitter.install").update({ with_sync = true })
 	end,
+	event = { "VeryLazy" },
 	config = function()
 		require("nvim-treesitter.install").prefer_git = true
 		require("nvim-treesitter.configs").setup({

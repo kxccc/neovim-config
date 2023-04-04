@@ -1,5 +1,6 @@
 return {
 	"ojroques/nvim-osc52",
+	event = { "VeryLazy" },
 	config = function()
 		function copy()
 			if vim.v.event.operator == "y" and vim.v.event.regname == "+" then
