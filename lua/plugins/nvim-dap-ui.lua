@@ -4,6 +4,12 @@ return {
 		"mfussenegger/nvim-dap",
 		"theHamsta/nvim-dap-virtual-text",
 	},
+	keys = {
+		{ "<leader>d", ":lua require('dapui').toggle()<cr>" },
+		{ "<leader>fd", ":lua require('dapui').float_element(nil,{width=140,height=200,enter=true})<cr>" },
+		{ "<leader>fw", ":lua require('dapui').float_element('watches',{width=140,height=200,enter=true})<cr>" },
+		{ "<leader>fc", ":lua require('dapui').float_element('console',{width=140,height=200,enter=true})<cr>" },
+	},
 	config = function()
 		require("nvim-dap-virtual-text").setup()
 		require("dapui").setup({
@@ -12,27 +18,6 @@ return {
 				max_width = 0.9, -- Floats will be treated as percentage of your screen.
 			},
 		})
-
-		local keymap = vim.keymap.set
-		keymap("n", "<leader>d", ":lua require('dapui').toggle()<cr>", { silent = true })
-		keymap(
-			"n",
-			"<leader>fd",
-			":lua require('dapui').float_element(nil,{width=140,height=200,enter=true})<cr>",
-			{ silent = true }
-		)
-		keymap(
-			"n",
-			"<leader>fw",
-			":lua require('dapui').float_element('watches',{width=140,height=200,enter=true})<cr>",
-			{ silent = true }
-		)
-		keymap(
-			"n",
-			"<leader>fc",
-			":lua require('dapui').float_element('console',{width=140,height=200,enter=true})<cr>",
-			{ silent = true }
-		)
 
 		local dap, dapui = require("dap"), require("dapui")
 		dap.listeners.after.event_initialized["dapui_config"] = function()

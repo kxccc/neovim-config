@@ -1,8 +1,9 @@
 return {
 	"mhartington/formatter.nvim",
+	keys = {
+		{ "<leader>t", ":Format<cr>", mode = { "n", "v" } },
+	},
 	config = function()
-		vim.keymap.set({ "n", "v" }, "<leader>t", ":Format<cr>", { noremap = true })
-
 		local util = require("formatter.util")
 
 		require("formatter").setup({

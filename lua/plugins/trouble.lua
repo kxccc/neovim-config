@@ -1,8 +1,10 @@
 return {
 	"folke/trouble.nvim",
 	dependencies = "kyazdani42/nvim-web-devicons",
+	keys = {
+		{ "<leader>xx", "<cmd>TroubleToggle<cr>" },
+	},
 	config = function()
-		vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
 		require("trouble").setup()
 	end,
 }

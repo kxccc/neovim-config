@@ -1,12 +1,14 @@
 return {
 	"mfussenegger/nvim-dap",
+	keys = {
+		{ "<f9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>" },
+		{ "<f5>", "<cmd>lua require'dap'.continue()<cr>" },
+		{ "<f10>", "<cmd>lua require'dap'.step_over()<cr>" },
+		{ "<f11>", "<cmd>lua require'dap'.step_into()<cr>" },
+		{ "<f12>", "<cmd>lua require'dap'.step_out()<cr>" },
+	},
+	dependencies = "nvim-dap-ui",
 	config = function()
-		vim.keymap.set("n", "<f9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<f5>", "<cmd>lua require'dap'.continue()<cr>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<f10>", "<cmd>lua require'dap'.step_over()<cr>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<f11>", "<cmd>lua require'dap'.step_into()<cr>", { silent = true, noremap = true })
-		vim.keymap.set("n", "<f12>", "<cmd>lua require'dap'.step_out()<cr>", { silent = true, noremap = true })
-
 		local dap = require("dap")
 
 		dap.adapters.codelldb = {
