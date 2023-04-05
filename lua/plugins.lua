@@ -22,8 +22,11 @@ return {
 
 	-- 快速跳转
 	{
-		"justinmk/vim-sneak",
+		"ggandor/leap.nvim",
 		event = { "VeryLazy" },
+		config = function()
+			require("leap").add_default_mappings()
+		end,
 	},
 
 	-- 缩进检测
