@@ -3,9 +3,6 @@ return {
 		"phaazon/hop.nvim",
 		version = "v2",
 		event = { "VeryLazy" },
-		dependencies = {
-			"zzhirong/hop-zh-by-flypy",
-		},
 		config = function()
 			require("hop").setup({
 				extensions = {
@@ -21,10 +18,25 @@ return {
 			"phaazon/hop.nvim",
 		},
 		config = function()
+			local hop_zh_by_flypy = require("hop-zh-by-flypy")
+			local directions = require("hop.hint").HintDirection
+
+			vim.keymap.set({ "n", "v" }, "<leader>s", function()
+				hop_zh_by_flypy.hint_char2({ direction = directions.AFTER_CURSOR })
+			end, { remap = true })
+			vim.keymap.set({ "n", "v" }, "<leader>S", function()
+				hop_zh_by_flypy.hint_char2({ direction = directions.BEFORE_CURSOR })
+			end, { remap = true })
+
+			vim.keymap.set("o", "<leader>s", function()
+				hop_zh_by_flypy.hint_char2({ direction = directions.AFTER_CURSOR, hint_offset = -1 })
+			end, { remap = true })
+			vim.keymap.set("o", "<leader>S", function()
+				hop_zh_by_flypy.hint_char2({ direction = directions.BEFORE_CURSOR, hint_offset = 1 })
+			end, { remap = true })
+
 			require("hop-zh-by-flypy").setup({
-				-- 注意: 本扩展的默认映射覆盖掉了一些常用的映射: f, F, t, T, s
-				-- 设置 set_default_mappings 为 false 可关闭默认映射.
-				set_default_mappings = true,
+				set_default_mappings = false,
 			})
 		end,
 	},

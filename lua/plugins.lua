@@ -36,4 +36,13 @@ return {
 			require("todo-comments").setup()
 		end,
 	},
+
+	-- 快速跳转
+	{
+		"ggandor/leap.nvim",
+		event = { "VeryLazy" },
+		config = function()
+			require("leap").add_default_mappings()
+		end,
+	},
 }
