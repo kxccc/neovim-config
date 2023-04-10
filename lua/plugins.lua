@@ -20,15 +20,6 @@ return {
 		opts = {},
 	},
 
-	-- 快速跳转
-	{
-		"ggandor/leap.nvim",
-		event = { "VeryLazy" },
-		config = function()
-			require("leap").add_default_mappings()
-		end,
-	},
-
 	-- 缩进检测
 	{
 		"nmac427/guess-indent.nvim",
