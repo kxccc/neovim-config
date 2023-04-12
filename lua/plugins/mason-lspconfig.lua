@@ -5,7 +5,7 @@ return {
 		"neovim/nvim-lspconfig",
 		"hrsh7th/cmp-nvim-lsp",
 	},
-	event = { "VeryLazy" },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("mason").setup()
 		require("mason-lspconfig").setup()
