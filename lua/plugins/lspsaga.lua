@@ -22,14 +22,14 @@ return {
 		-- Show line diagnostics
 		-- You can pass argument ++unfocus to
 		-- unfocus the show_line_diagnostics floating window
-		{ "<leader>ls", "<cmd>Lspsaga show_line_diagnostics<CR>" },
+		-- { "<leader>ls", "<cmd>Lspsaga show_line_diagnostics<CR>" },
 
 		-- Show cursor diagnostics
 		-- Like show_line_diagnostics, it supports passing the ++unfocus argument
 		{ "<leader>cs", "<cmd>Lspsaga show_cursor_diagnostics<CR>" },
 
 		-- Show buffer diagnostics
-		{ "<leader>bs", "<cmd>Lspsaga show_buf_diagnostics<CR>" },
+		-- { "<leader>bs", "<cmd>Lspsaga show_buf_diagnostics<CR>" },
 
 		-- Diagnsotic jump can use `<c-o>` to jump back
 		{ "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>" },

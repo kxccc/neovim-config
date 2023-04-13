@@ -48,6 +48,7 @@ return {
 
 	-- markdown 预览
 	-- FIX: 远程连接有 bug
+	-- https://github.com/iamcco/markdown-preview.nvim/issues/559
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },

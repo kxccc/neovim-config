@@ -5,6 +5,10 @@ return {
 		{ "<leader>g", "<cmd>Neogit<cr>" },
 	},
 	config = function()
-		require("neogit").setup()
+		require("neogit").setup({
+			-- FIX: 与 noice.nvim 不兼容
+			-- https://github.com/folke/noice.nvim/issues/232
+			disable_commit_confirmation = true,
+		})
 	end,
 }
