@@ -1,7 +1,13 @@
 return {
 	"folke/noice.nvim",
 	config = function()
+		-- FIX: popupmenu
+		-- https://github.com/folke/noice.nvim/issues/102
 		require("noice").setup({
+			messages = {
+				view = "mini",
+				filter = { find = "^Hop" },
+			},
 			lsp = {
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
