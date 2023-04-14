@@ -20,6 +20,8 @@ tnoremap <silent> <Esc> <C-\><C-n>
 nnoremap <silent> <Space> <C-w>
 " 关闭缓冲区
 nnoremap <silent> <leader>w :bd<cr>:bp<cr>
+" 关闭鼠标
+set mouse=
 
 " 显示行号
 set number
