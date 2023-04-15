@@ -1,7 +1,7 @@
 return {
 	"mhartington/formatter.nvim",
 	keys = {
-		{ "<leader>t", "<cmd>Format<cr>", mode = { "n", "v" } },
+		{ "<leader>t", "<cmd>Format<cr>", mode = { "n", "v" }, desc = "Format" },
 	},
 	config = function()
 		local util = require("formatter.util")

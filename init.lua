@@ -13,13 +13,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ";"
 require("lazy").setup("plugins")
 
+-- 关闭缓冲区
+vim.keymap.set("n", "<leader>w", ":bd<cr>:bp<cr>", { silent = true, remap = false, desc = "Close Buffer" })
 vim.cmd([[
 " 终端返回普通模式
 tnoremap <silent> <Esc> <C-\><C-n>
 " 切换窗口
-nnoremap <silent> <Space> <C-w>
-" 关闭缓冲区
-nnoremap <silent> <leader>w :bd<cr>:bp<cr>
+nmap <silent> <Space> <C-w>
 " 关闭鼠标
 set mouse=
 

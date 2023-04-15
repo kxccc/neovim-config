@@ -4,7 +4,7 @@ return {
 		version = "v2",
 		event = { "VeryLazy" },
 		keys = {
-			{ "<leader>l", "<cmd>HopLine<CR>" },
+			{ "<leader>l", "<cmd>HopLine<CR>", desc = "Hop Line" },
 		},
 		config = function()
 			-- place this in one of your configuration file(s)
@@ -42,10 +42,10 @@ return {
 
 			vim.keymap.set({ "n", "v" }, "<leader>s", function()
 				hop_zh_by_flypy.hint_char2({ direction = directions.AFTER_CURSOR })
-			end, { remap = true })
+			end, { remap = true, desc = "Hop After" })
 			vim.keymap.set({ "n", "v" }, "<leader>a", function()
 				hop_zh_by_flypy.hint_char2({ direction = directions.BEFORE_CURSOR })
-			end, { remap = true })
+			end, { remap = true, desc = "Hop Before" })
 
 			vim.keymap.set("o", "<leader>s", function()
 				hop_zh_by_flypy.hint_char2({ direction = directions.AFTER_CURSOR, hint_offset = -1 })

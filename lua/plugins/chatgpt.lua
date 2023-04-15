@@ -7,7 +7,7 @@ return {
 		"nvim-telescope/telescope.nvim",
 	},
 	keys = {
-		{ "<leader>c", "<cmd>ChatGPT<cr>" },
+		{ "<leader>p", "<cmd>ChatGPT<cr>" },
 	},
 	config = function()
 		require("chatgpt").setup({

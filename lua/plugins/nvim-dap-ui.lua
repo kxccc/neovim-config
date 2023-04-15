@@ -5,10 +5,10 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 	},
 	keys = {
-		{ "<leader>d", ":lua require('dapui').toggle()<cr>" },
-		{ "<leader>fd", ":lua require('dapui').float_element(nil,{width=140,height=200,enter=true})<cr>" },
-		{ "<leader>fw", ":lua require('dapui').float_element('watches',{width=140,height=200,enter=true})<cr>" },
-		{ "<leader>fc", ":lua require('dapui').float_element('console',{width=140,height=200,enter=true})<cr>" },
+		{ "<leader>d", ":lua require('dapui').toggle()<cr>", desc = "DAP UI" },
+		-- { "<leader>fd", ":lua require('dapui').float_element(nil,{width=140,height=200,enter=true})<cr>" },
+		-- { "<leader>fw", ":lua require('dapui').float_element('watches',{width=140,height=200,enter=true})<cr>" },
+		-- { "<leader>fc", ":lua require('dapui').float_element('console',{width=140,height=200,enter=true})<cr>" },
 	},
 	config = function()
 		require("nvim-dap-virtual-text").setup()
