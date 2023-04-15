@@ -6,13 +6,6 @@ return {
 		opts = {},
 	},
 
-	-- Git 工具
-	{
-		"lewis6991/gitsigns.nvim",
-		version = "release",
-		opts = {},
-	},
-
 	-- 注释
 	{
 		"numToStr/Comment.nvim",

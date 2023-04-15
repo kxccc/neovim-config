@@ -7,7 +7,7 @@ return {
 		require("which-key").setup({})
 		local wk = require("which-key")
 		wk.register({
-			["<leader>m"] = {
+			["<leader>t"] = {
 				name = "Neotest",
 				s = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Neotest summary" },
 				a = "attach",
@@ -26,6 +26,15 @@ return {
 				O = "short",
 				u = "stop",
 				t = "target",
+			},
+			["<leader>x"] = {
+				name = "Touble",
+			},
+			["<leader>c"] = {
+				name = "LSP",
+			},
+			["<leader>f"] = {
+				name = "Telescope",
 			},
 		})
 	end,

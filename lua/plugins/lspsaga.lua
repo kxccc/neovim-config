@@ -5,10 +5,10 @@ return {
 		-- Lsp finder find the symbol definition implement reference
 		-- when you use action in finder like open vsplit then you can
 		-- use <C-t> to jump back
-		{ "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "Lsp finder" },
+		{ "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "LSP finder" },
 
 		-- Code action
-		{ "<leader>ca", "<cmd>Lspsaga code_action<CR>", mode = { "n", "v" } },
+		{ "<leader>ca", "<cmd>Lspsaga code_action<CR>", mode = { "n", "v" }, desc = "code action" },
 
 		-- Rename all occurrences of the hovered word for the selected files
 		{ "gr", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename" },
@@ -26,7 +26,7 @@ return {
 
 		-- Show cursor diagnostics
 		-- Like show_line_diagnostics, it supports passing the ++unfocus argument
-		{ "<leader>cs", "<cmd>Lspsaga show_cursor_diagnostics<CR>" },
+		{ "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", desc = "cursor diagnostics" },
 
 		-- Show buffer diagnostics
 		-- { "<leader>bs", "<cmd>Lspsaga show_buf_diagnostics<CR>" },
@@ -58,8 +58,8 @@ return {
 		{ "K", "<cmd>Lspsaga hover_doc ++keep<CR>" },
 
 		-- Call hierarchy
-		{ "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>" },
-		{ "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>" },
+		{ "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>", desc = "incoming calls" },
+		{ "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>", desc = "outgoing calls" },
 
 		-- Floating terminal
 		{ "<C-d>", "<cmd>Lspsaga term_toggle<CR>", mode = { "n", "t" } },

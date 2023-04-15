@@ -4,7 +4,7 @@ return {
 		version = "v2",
 		event = { "VeryLazy" },
 		keys = {
-			{ "<leader>l", "<cmd>HopLine<CR>", desc = "Hop Line" },
+			{ "<leader>h", "<cmd>HopLine<CR>", desc = "Hop Line" },
 		},
 		config = function()
 			-- place this in one of your configuration file(s)
