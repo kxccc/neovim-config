@@ -9,7 +9,6 @@ return {
 		wk.register({
 			["<leader>t"] = {
 				name = "Neotest",
-				s = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Neotest summary" },
 				a = "attach",
 				M = "clear_marked",
 				T = "clear_target",
@@ -35,6 +34,9 @@ return {
 			},
 			["<leader>f"] = {
 				name = "Telescope",
+			},
+			["<leader>g"] = {
+				name = "Git",
 			},
 		})
 	end,

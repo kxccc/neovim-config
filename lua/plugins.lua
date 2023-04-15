@@ -24,9 +24,6 @@ return {
 	{
 		"folke/todo-comments.nvim",
 		dependencies = "nvim-lua/plenary.nvim",
-		keys = {
-			{ "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find Todo" },
-		},
 		event = { "VeryLazy" },
 		config = function()
 			require("todo-comments").setup()

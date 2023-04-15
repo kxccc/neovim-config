@@ -1,15 +1,26 @@
 return {
 	"mfussenegger/nvim-dap",
 	keys = {
-		{ "<f9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>" },
-		{ "<f5>", "<cmd>lua require'dap'.continue()<cr>" },
-		{ "<f10>", "<cmd>lua require'dap'.step_over()<cr>" },
-		{ "<f11>", "<cmd>lua require'dap'.step_into()<cr>" },
-		{ "<f12>", "<cmd>lua require'dap'.step_out()<cr>" },
+		{ "<f9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "debug toggle breakpoint" },
+		{ "<f5>", "<cmd>lua require'dap'.continue()<cr>", desc = "debug continue" },
+		{ "<f10>", "<cmd>lua require'dap'.step_over()<cr>", desc = "debug step over" },
+		{ "<f11>", "<cmd>lua require'dap'.step_into()<cr>", desc = "debug step into" },
+		{ "<f12>", "<cmd>lua require'dap'.step_out()<cr>", desc = "debug step out" },
 	},
 	dependencies = "nvim-dap-ui",
 	config = function()
 		local dap = require("dap")
+		local dapui = require("dapui")
+		dap.listeners.after.event_initialized["dapui_config"] = function()
+			require("nvim-tree.view").close()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated["dapui_config"] = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited["dapui_config"] = function()
+			dapui.close()
+		end
 
 		dap.adapters.codelldb = {
 			type = "server",

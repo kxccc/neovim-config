@@ -1,10 +1,10 @@
 return {
 	"folke/trouble.nvim",
 	dependencies = "kyazdani42/nvim-web-devicons",
-	-- TODO: 扩充
 	keys = {
-		{ "<leader>xx", "<cmd>TroubleToggle<cr>", desc = "Trouble" },
 		{ "<leader>xg", "<cmd>Gitsigns setqflist<cr>", desc = "Git" },
+		{ "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "document diagnostics" },
+		{ "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo" },
 	},
 	config = function()
 		require("trouble").setup()

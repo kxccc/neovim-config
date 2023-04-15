@@ -2,7 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
 		"kyazdani42/nvim-web-devicons",
-		"folke/noice.nvim",
 	},
 	config = function()
 		require("lualine").setup({

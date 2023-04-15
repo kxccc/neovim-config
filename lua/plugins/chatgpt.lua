@@ -1,13 +1,12 @@
 return {
 	"jackMort/ChatGPT.nvim",
-	event = "VeryLazy",
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",
 	},
 	keys = {
-		{ "<leader>p", "<cmd>ChatGPT<cr>" },
+		{ "<leader>p", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
 	},
 	config = function()
 		require("chatgpt").setup({

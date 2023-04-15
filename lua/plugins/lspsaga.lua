@@ -10,8 +10,8 @@ return {
 		-- Code action
 		{ "<leader>ca", "<cmd>Lspsaga code_action<CR>", mode = { "n", "v" }, desc = "code action" },
 
-		-- Rename all occurrences of the hovered word for the selected files
-		{ "gr", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename" },
+		-- Rename all occurrences of the hovered word for the entire file
+		{ "gr", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
 
 		-- Peek Definition
 		-- you can edit the definition file in this flaotwindow
@@ -55,14 +55,14 @@ return {
 		{ "<leader>o", "<cmd>Lspsaga outline<CR>", desc = "Outline" },
 
 		-- Hover Doc
-		{ "K", "<cmd>Lspsaga hover_doc ++keep<CR>" },
+		{ "K", "<cmd>Lspsaga hover_doc ++keep<CR>", desc = "LSP doc" },
 
 		-- Call hierarchy
 		{ "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>", desc = "incoming calls" },
 		{ "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>", desc = "outgoing calls" },
 
 		-- Floating terminal
-		{ "<C-d>", "<cmd>Lspsaga term_toggle<CR>", mode = { "n", "t" } },
+		{ "<C-d>", "<cmd>Lspsaga term_toggle<CR>", mode = { "n", "t" }, desc = "terminal" },
 	},
 	config = function()
 		require("lspsaga").setup()

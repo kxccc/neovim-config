@@ -1,6 +1,8 @@
 return {
 	"nvim-neotest/neotest",
-	event = { "VeryLazy" },
+	keys = {
+		{ "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<cr>", desc = "Neotest summary" },
+	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
