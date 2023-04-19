@@ -18,12 +18,13 @@ vim.keymap.set("n", "<leader>w", function()
 	local id = vim.api.nvim_get_current_buf()
 	vim.cmd("bNext")
 	vim.cmd("bd " .. id)
-end, { silent = true, remap = false, desc = "Close Buffer" })
+end, { desc = "Close Buffer" })
+-- 终端返回普通模式
+vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
+-- 切换窗口
+vim.keymap.set("n", "<space>", "<C-w>", { remap = true })
+
 vim.cmd([[
-" 终端返回普通模式
-tnoremap <silent> <Esc> <C-\><C-n>
-" 切换窗口
-nmap <silent> <Space> <C-w>
 " 关闭鼠标
 set mouse=
 

@@ -8,6 +8,7 @@ return {
 	keys = {
 		{ "<leader>p", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
 	},
+	-- FIX: 按键映射无效
 	config = function()
 		require("chatgpt").setup({
 			keymaps = {
