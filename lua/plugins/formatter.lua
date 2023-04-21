@@ -43,6 +43,10 @@ return {
 
 				c = { require("formatter.filetypes.c").clangformat },
 
+				objc = { require("formatter.filetypes.c").clangformat },
+
+				objcpp = { require("formatter.filetypes.cpp").clangformat },
+
 				python = { require("formatter.filetypes.python").yapf },
 
 				nix = { require("formatter.filetypes.nix").nixpkgs_fmt },
