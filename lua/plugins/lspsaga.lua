@@ -51,9 +51,6 @@ return {
 			desc = "Next error",
 		},
 
-		-- Toggle outline
-		{ "<leader>o", "<cmd>Lspsaga outline<CR>", desc = "Outline" },
-
 		-- Hover Doc
 		{ "K", "<cmd>Lspsaga hover_doc ++keep<CR>", desc = "LSP doc" },
 

@@ -49,4 +49,13 @@ return {
 			vim.g.mkdp_port = "8855"
 		end,
 	},
+
+	-- outline
+	{
+		"simrat39/symbols-outline.nvim",
+		keys = {
+			{ "<leader>o", "<cmd>SymbolsOutline<CR>", desc = "Outline" },
+		},
+		opts = {},
+	},
 }
