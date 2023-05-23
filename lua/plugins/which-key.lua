@@ -38,6 +38,9 @@ return {
 			["<leader>g"] = {
 				name = "Git",
 			},
+			["<leader>a"] = {
+				name = "Markdown Table",
+			},
 		})
 	end,
 }

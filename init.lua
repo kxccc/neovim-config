@@ -1,3 +1,7 @@
+-- FIX: vim table mode 与 lazy.nvim 不兼容
+-- https://github.com/dhruvasagar/vim-table-mode/issues/222
+vim.g.table_mode_map_prefix = "<leader>a"
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({

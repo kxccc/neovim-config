@@ -58,4 +58,14 @@ return {
 		},
 		opts = {},
 	},
+
+	-- markdown 表格
+	{
+		"dhruvasagar/vim-table-mode",
+		ft = "markdown",
+		config = function()
+			vim.g.table_mode_motion_up_map = ""
+			vim.g.table_mode_motion_down_map = ""
+		end,
+	},
 }
