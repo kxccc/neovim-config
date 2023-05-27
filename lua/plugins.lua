@@ -54,18 +54,26 @@ return {
 	{
 		"simrat39/symbols-outline.nvim",
 		keys = {
-			{ "<leader>o", "<cmd>SymbolsOutline<CR>", desc = "Outline" },
+			{ "<leader>i", "<cmd>SymbolsOutline<CR>", desc = "Outline" },
 		},
 		opts = {},
 	},
 
-	-- markdown 表格
+	-- 表格模式
 	{
 		"dhruvasagar/vim-table-mode",
-		ft = "markdown",
+		ft = { "markdown", "org" },
 		config = function()
 			vim.g.table_mode_motion_up_map = ""
 			vim.g.table_mode_motion_down_map = ""
 		end,
+	},
+
+	-- headlines 颜色
+	{
+		"lukas-reineke/headlines.nvim",
+		ft = { "markdown", "org" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {},
 	},
 }

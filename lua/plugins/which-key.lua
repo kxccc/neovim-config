@@ -39,7 +39,10 @@ return {
 				name = "Git",
 			},
 			["<leader>a"] = {
-				name = "Markdown Table",
+				name = "Table Mode",
+			},
+			["<leader>o"] = {
+				name = "Org Mode",
 			},
 		})
 	end,
