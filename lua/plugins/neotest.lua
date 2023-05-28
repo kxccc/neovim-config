@@ -1,7 +1,7 @@
 return {
 	"nvim-neotest/neotest",
 	keys = {
-		{ "<leader>ts", "<cmd>lua require('neotest').summary.toggle()<cr>", desc = "Neotest summary" },
+		{ "<leader>t", "<cmd>lua require('neotest').summary.toggle()<cr>", desc = "Neotest Summary" },
 	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",

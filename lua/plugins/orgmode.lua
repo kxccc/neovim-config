@@ -14,10 +14,12 @@ return {
 		require("orgmode").setup_ts_grammar()
 		require("orgmode").setup({
 			org_agenda_files = { path .. "*" },
+			org_todo_keywords = { "TODO", "SCH", "WAIT", "|", "DONE" },
+			win_split_mode = "vertical",
 			org_capture_templates = {
 				t = {
 					description = "Task",
-					template = "** TODO %?\n   %U",
+					template = "** %?\n   %U",
 					target = path .. "task.org",
 					headline = "inbox",
 				},
@@ -29,13 +31,13 @@ return {
 				e = "Event",
 				er = {
 					description = "recurring",
-					template = "** %?\n   %T",
+					template = "** SCH %?\n   %U SCHEDULED: ",
 					target = path .. "calendar.org",
 					headline = "recurring",
 				},
 				eo = {
 					description = "one-time",
-					template = "** %?\n   %T",
+					template = "** SCH %?\n   %U SCHEDULED: ",
 					target = path .. "calendar.org",
 					headline = "one-time",
 				},
