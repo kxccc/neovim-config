@@ -1,11 +1,15 @@
 return {
 	"glepnir/lspsaga.nvim",
 	branch = "main",
+	event = "LspAttach",
 	keys = {
 		-- Lsp finder find the symbol definition implement reference
 		-- when you use action in finder like open vsplit then you can
 		-- use <C-t> to jump back
-		{ "gh", "<cmd>Lspsaga lsp_finder<CR>", desc = "LSP finder" },
+		{ "gh", "<cmd>Lspsaga finder<CR>", desc = "LSP finder" },
+
+		-- outline
+		{ "<leader>i", "<cmd>Lspsaga outline<CR>", desc = "LSP Outline" },
 
 		-- Code action
 		{ "<leader>ca", "<cmd>Lspsaga code_action<CR>", mode = { "n", "v" }, desc = "code action" },
@@ -59,7 +63,7 @@ return {
 		{ "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>", desc = "outgoing calls" },
 
 		-- Floating terminal
-		{ "<C-d>", "<cmd>Lspsaga term_toggle<CR>", mode = { "n", "t" }, desc = "terminal" },
+		{ "<C-t>", "<cmd>Lspsaga term_toggle<CR>", mode = { "n", "t" }, desc = "terminal" },
 	},
 	config = function()
 		require("lspsaga").setup()

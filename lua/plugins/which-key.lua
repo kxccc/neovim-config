@@ -20,10 +20,13 @@ return {
 				name = "Git",
 			},
 			["<leader>a"] = {
-				name = "Table Mode",
+				name = "Markdown",
 			},
 			["<leader>o"] = {
 				name = "Org Mode",
+			},
+			["<leader>q"] = {
+				name = "Session",
 			},
 			["<leader>r"] = {
 				name = "Help",
