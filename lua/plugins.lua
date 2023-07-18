@@ -54,4 +54,13 @@ return {
 		event = { "VeryLazy" },
 		opts = {},
 	},
+
+	-- outline
+	{
+		"simrat39/symbols-outline.nvim",
+		keys = {
+			{ "<leader>i", "<cmd>SymbolsOutline<CR>", desc = "Outline" },
+		},
+		opts = {},
+	},
 }

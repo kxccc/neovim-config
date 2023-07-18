@@ -9,7 +9,7 @@ return {
 		{ "gh", "<cmd>Lspsaga finder<CR>", desc = "LSP finder" },
 
 		-- outline
-		{ "<leader>i", "<cmd>Lspsaga outline<CR>", desc = "LSP Outline" },
+		-- { "<leader>i", "<cmd>Lspsaga outline<CR>", desc = "LSP Outline" },
 
 		-- Code action
 		{ "<leader>ca", "<cmd>Lspsaga code_action<CR>", mode = { "n", "v" }, desc = "code action" },
