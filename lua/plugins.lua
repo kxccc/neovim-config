@@ -63,4 +63,13 @@ return {
 		},
 		opts = {},
 	},
+
+	-- 单词高亮
+	{
+		"RRethy/vim-illuminate",
+		event = "VeryLazy",
+		config = function()
+			require("illuminate").configure()
+		end,
+	},
 }

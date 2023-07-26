@@ -8,8 +8,19 @@ return {
 		},
 		build = "cd app && npm install",
 		init = function()
+			vim.g.mkdp_auto_start = 1
 			vim.g.mkdp_echo_preview_url = 1
-			vim.g.mkdp_port = "8855"
+			vim.cmd([[
+				function! Open_url(url)
+					" 使用 system() 函数调用外部应用程序
+					let command = 'silent-chrome-launcher ' . shellescape(a:url)
+					let output = system(command)
+
+					" 将输出结果插入到当前缓冲区
+					" call append(line('$'), output)
+				endfunction
+			]])
+			vim.g.mkdp_browserfunc = "Open_url"
 		end,
 	},
 

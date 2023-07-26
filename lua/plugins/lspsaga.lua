@@ -66,6 +66,10 @@ return {
 		{ "<C-t>", "<cmd>Lspsaga term_toggle<CR>", mode = { "n", "t" }, desc = "terminal" },
 	},
 	config = function()
-		require("lspsaga").setup()
+		require("lspsaga").setup({
+			lightbulb = {
+				sign = false,
+			},
+		})
 	end,
 }

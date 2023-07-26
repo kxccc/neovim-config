@@ -24,6 +24,13 @@ return {
 
 				html = { require("formatter.filetypes.html").prettier },
 
+				markdown = {
+					function()
+						vim.cmd([[%!npx md-padding]])
+						return require("formatter.filetypes.markdown").prettier()
+					end,
+				},
+
 				java = {
 					function()
 						vim.lsp.buf.format()
