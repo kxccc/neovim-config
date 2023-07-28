@@ -10,6 +10,7 @@ return {
 		init = function()
 			vim.g.mkdp_auto_start = 1
 			vim.g.mkdp_echo_preview_url = 1
+			vim.g.mkdp_port = "8855"
 			vim.cmd([[
 				function! Open_url(url)
 					" 使用 system() 函数调用外部应用程序
@@ -58,5 +59,23 @@ return {
 				affix = "![](%s)",
 			},
 		},
+	},
+
+	{
+		"epwalsh/obsidian.nvim",
+		-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
+		event = { "BufReadPre " .. vim.fn.expand("~") .. "/dev/obsidian/**.md" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+			"nvim-telescope/telescope.nvim",
+		},
+		opts = {
+			dir = "~/dev/obsidian", -- no need to call 'vim.fn.expand' here
+			disable_frontmatter = true,
+		},
+		config = function(_, opts)
+			require("obsidian").setup(opts)
+		end,
 	},
 }
