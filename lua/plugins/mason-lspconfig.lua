@@ -15,7 +15,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-		local servers = { "clangd", "tsserver", "pylsp", "marksman" }
+		local servers = { "tsserver", "pylsp", "marksman" }
 		for _, lsp in ipairs(servers) do
 			lspconfig[lsp].setup({
 				-- on_attach = my_custom_on_attach,
@@ -25,6 +25,13 @@ return {
 
 		lspconfig["sourcekit"].setup({
 			filetypes = { "swift" },
+			capabilities = capabilities,
+		})
+
+		-- FIX: offsetEncoding 问题
+		-- https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428
+		capabilities.offsetEncoding = { "utf-16" }
+		lspconfig["clangd"].setup({
 			capabilities = capabilities,
 		})
 	end,

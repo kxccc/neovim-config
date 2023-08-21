@@ -10,7 +10,11 @@ return {
 	{
 		"numToStr/Comment.nvim",
 		event = { "VeryLazy" },
-		opts = {},
+		config = function()
+			local ft = require("Comment.ft")
+			ft({ "objc", "objcpp" }, ft.get("c"))
+			require("Comment").setup()
+		end,
 	},
 
 	-- 缩进检测
@@ -71,5 +75,25 @@ return {
 		config = function()
 			require("illuminate").configure()
 		end,
+	},
+
+	-- copilot
+	{
+		"zbirenbaum/copilot.lua",
+		event = "VeryLazy",
+		config = function()
+			vim.g.copilot_proxy = "agent.baidu.com:8891"
+			require("copilot").setup({
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+	},
+
+	-- copilot cmp
+	{
+		"zbirenbaum/copilot-cmp",
+		event = { "InsertEnter", "LspAttach" },
+		opts = {},
 	},
 }

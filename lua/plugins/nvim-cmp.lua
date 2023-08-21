@@ -7,6 +7,7 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
+		"onsails/lspkind.nvim",
 	},
 	event = { "VeryLazy" },
 	config = function()
@@ -21,7 +22,21 @@ return {
 		-- Set up nvim-cmp.
 		local cmp = require("cmp")
 
+		local lspkind = require("lspkind")
+
 		cmp.setup({
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = "symbol", -- show only symbol annotations
+					maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+					symbol_map = { Copilot = "" },
+					-- The function below will be called before any actual modifications from lspkind
+					before = function(entry, vim_item)
+						return vim_item
+					end,
+				}),
+			},
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
@@ -57,10 +72,12 @@ return {
 				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
+				{ name = "copilot" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- For luasnip users.
-				{ name = "buffer" },
 				{ name = "orgmode" },
+			}, {
+				{ name = "buffer" },
 			}),
 		})
 
