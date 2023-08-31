@@ -22,6 +22,9 @@ return {
 				endfunction
 			]])
 			vim.g.mkdp_browserfunc = "Open_url"
+			vim.g.mkdp_preview_options = {
+				uml = { imageFormat = "svg" },
+			}
 		end,
 	},
 
@@ -64,15 +67,14 @@ return {
 	{
 		"epwalsh/obsidian.nvim",
 		-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-		event = { "BufReadPre " .. vim.fn.expand("~") .. "/dev/obsidian/**.md" },
+		event = { "BufReadPre " .. vim.fn.expand("~") .. "/dev/docs/obsidian/**.md" },
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"hrsh7th/nvim-cmp",
 			"nvim-telescope/telescope.nvim",
 		},
 		opts = {
-			dir = "~/dev/obsidian", -- no need to call 'vim.fn.expand' here
-			disable_frontmatter = true,
+			dir = "~/dev/docs/obsidian", -- no need to call 'vim.fn.expand' here
 		},
 		config = function(_, opts)
 			require("obsidian").setup(opts)

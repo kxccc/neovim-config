@@ -23,6 +23,8 @@ end, { desc = "Close Buffer" })
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
 -- 切换窗口
 vim.keymap.set("n", "<space>", "<C-w>", { remap = true })
+-- 复制到系统剪切板
+vim.keymap.set("n", "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
 
 vim.cmd([[
 " 关闭鼠标

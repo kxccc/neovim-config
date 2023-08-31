@@ -25,8 +25,8 @@ return {
 				html = { require("formatter.filetypes.html").prettier },
 
 				markdown = {
+					-- 其他写法
 					function()
-						vim.cmd([[%!npx md-padding]])
 						return require("formatter.filetypes.markdown").prettier()
 					end,
 				},
