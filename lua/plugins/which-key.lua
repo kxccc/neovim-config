@@ -28,6 +28,9 @@ return {
 			["<leader>q"] = {
 				name = "Session",
 			},
+			["<leader>e"] = {
+				name = "File Tree",
+			},
 			["<leader>r"] = {
 				name = "Help",
 				p = {

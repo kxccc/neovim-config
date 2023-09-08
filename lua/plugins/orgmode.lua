@@ -14,7 +14,7 @@ return {
 		require("orgmode").setup_ts_grammar()
 		require("orgmode").setup({
 			org_agenda_files = { path .. "*" },
-			org_todo_keywords = { "TODO", "SCH", "WAIT", "|", "DONE" },
+			org_todo_keywords = { "TODO", "SCH", "WAIT", "PROJ", "|", "DONE" },
 			win_split_mode = "vertical",
 			org_capture_templates = {
 				t = {
