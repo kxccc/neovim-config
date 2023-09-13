@@ -80,4 +80,12 @@ return {
 			require("obsidian").setup(opts)
 		end,
 	},
+
+	{
+		"mzlogin/vim-markdown-toc",
+		ft = "markdown",
+		keys = {
+			{ "<leader>ao", "<cmd>GenTocGFM<cr>", desc = "gen toc" },
+		},
+	},
 }
