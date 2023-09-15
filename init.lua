@@ -26,6 +26,9 @@ vim.keymap.set("n", "<space>", "<C-w>", { remap = true })
 -- 复制到系统剪切板
 vim.keymap.set("n", "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
 
+-- 始终显示信号栏
+vim.opt.signcolumn = "yes"
+
 vim.cmd([[
 " 关闭鼠标
 set mouse=
