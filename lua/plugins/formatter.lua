@@ -40,7 +40,7 @@ return {
 				swift = {
 					function()
 						return {
-							exe = "swiftformat",
+							exe = "swift-format",
 							stdin = "true",
 						}
 					end,
