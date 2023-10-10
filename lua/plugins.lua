@@ -32,15 +32,6 @@ return {
 		opts = {},
 	},
 
-	-- 快速跳转
-	{
-		"ggandor/leap.nvim",
-		event = { "VeryLazy" },
-		config = function()
-			require("leap").add_default_mappings()
-		end,
-	},
-
 	-- 保存状态
 	{
 		"folke/persistence.nvim",
