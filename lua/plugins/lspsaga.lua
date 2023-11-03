@@ -22,6 +22,7 @@ return {
 		-- also support open/vsplit/etc operation check definition_action_keys
 		-- support tagstack C-t jump back
 		{ "gd", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
+		{ "gy", "<cmd>Lspsaga peek_type_definition<CR>", desc = "Peek Type Definition" },
 
 		-- Show line diagnostics
 		-- You can pass argument ++unfocus to

@@ -32,6 +32,8 @@ vim.opt.signcolumn = "yes"
 vim.cmd([[
 " 关闭鼠标
 set mouse=
+" 关闭增强搜索
+set noincsearch
 
 " 显示行号
 set number
