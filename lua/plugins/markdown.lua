@@ -50,7 +50,7 @@ return {
 			"nvim-telescope/telescope.nvim",
 		},
 		keys = {
-			{ "<leader>ap", "<cmd>ObsidianPasteImg " .. vim.fn.strftime("%s") .. "<cr>", desc = "paste img" },
+			{ "<leader>ap", "<cmd>lua vim.cmd('ObsidianPasteImg' .. os.time())<cr>", desc = "paste img" },
 		},
 		opts = {
 			dir = "~/dev/docs/obsidian", -- no need to call 'vim.fn.expand' here
