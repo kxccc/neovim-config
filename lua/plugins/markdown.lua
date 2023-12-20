@@ -25,6 +25,7 @@ return {
 			vim.g.mkdp_preview_options = {
 				uml = { imageFormat = "svg" },
 			}
+			vim.g.mkdp_images_path = vim.fn.getcwd()
 		end,
 	},
 
@@ -39,31 +40,6 @@ return {
 		end,
 	},
 
-	-- BUG: health 错误
-	-- https://github.com/ekickx/clipboard-image.nvim/issues/50
-	-- markdown 图片插入
-	{
-		"postfen/clipboard-image.nvim",
-		ft = "markdown",
-		keys = {
-			{ "<leader>ap", "<cmd>PasteImg<cr>", desc = "paste img" },
-		},
-		opts = {
-			markdown = {
-				img_dir = function()
-					return "media/" .. vim.fn.expand("%:r")
-				end,
-				img_dir_txt = function()
-					return "media/" .. vim.fn.expand("%:r")
-				end,
-				img_name = function()
-					return os.time()
-				end,
-				affix = "![](%s)",
-			},
-		},
-	},
-
 	{
 		"epwalsh/obsidian.nvim",
 		-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
@@ -73,8 +49,25 @@ return {
 			"hrsh7th/nvim-cmp",
 			"nvim-telescope/telescope.nvim",
 		},
+		keys = {
+			{ "<leader>ap", "<cmd>ObsidianPasteImg " .. vim.fn.strftime("%s") .. "<cr>", desc = "paste img" },
+		},
 		opts = {
 			dir = "~/dev/docs/obsidian", -- no need to call 'vim.fn.expand' here
+			daily_notes = {
+				-- Optional, if you keep daily notes in a separate directory.
+				folder = "dailies",
+				-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+				template = "daily.md",
+			},
+			-- Optional, for templates (see below).
+			templates = {
+				subdir = "templates",
+				date_format = "%Y-%m-%d",
+				time_format = "%H:%M",
+				-- A map for custom variables, the key should be the variable and the value a function
+				substitutions = {},
+			},
 		},
 		config = function(_, opts)
 			require("obsidian").setup(opts)
@@ -85,7 +78,7 @@ return {
 		"mzlogin/vim-markdown-toc",
 		ft = "markdown",
 		keys = {
-			{ "<leader>ao", "<cmd>GenTocGFM<cr>", desc = "gen toc" },
+			{ "<leader>ao", "<cmd>GenTocMarked<cr>", desc = "gen toc" },
 		},
 	},
 }

@@ -34,6 +34,8 @@ vim.cmd([[
 set mouse=
 " 关闭增强搜索
 set noincsearch
+" 高亮当前行
+set cursorline
 
 " 显示行号
 set number
