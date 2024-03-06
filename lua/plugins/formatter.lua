@@ -58,6 +58,8 @@ return {
 
 				nix = { require("formatter.filetypes.nix").nixpkgs_fmt },
 
+				sh = { require("formatter.filetypes.sh").shfmt },
+
 				["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
 			},
 		})

@@ -40,7 +40,11 @@ return {
 
 				mappings = {
 					i = { ["<c-t>"] = trouble.smart_open_with_trouble, ["<c-s>"] = flash },
-					n = { ["<c-t>"] = trouble.smart_open_with_trouble, s = flash },
+					n = {
+						s = flash,
+						["<c-t>"] = trouble.smart_open_with_trouble,
+						["<c-d>"] = require("telescope.actions").delete_buffer,
+					},
 				},
 			},
 		})

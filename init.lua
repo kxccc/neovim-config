@@ -36,6 +36,9 @@ set mouse=
 set noincsearch
 " 高亮当前行
 set cursorline
+" 使用 Q 录制宏
+nnoremap Q q
+nnoremap q <Nop>
 
 " 显示行号
 set number
