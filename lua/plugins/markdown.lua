@@ -8,20 +8,9 @@ return {
 		},
 		build = "cd app && npm install",
 		init = function()
-			vim.g.mkdp_auto_start = 1
+			vim.g.mkdp_auto_start = 0
 			vim.g.mkdp_echo_preview_url = 1
 			vim.g.mkdp_port = "8855"
-			vim.cmd([[
-				function! Open_url(url)
-					" 使用 system() 函数调用外部应用程序
-					let command = 'silent-chrome-launcher ' . shellescape(a:url)
-					let output = system(command)
-
-					" 将输出结果插入到当前缓冲区
-					" call append(line('$'), output)
-				endfunction
-			]])
-			vim.g.mkdp_browserfunc = "Open_url"
 			vim.g.mkdp_preview_options = {
 				uml = { imageFormat = "svg" },
 			}
@@ -40,6 +29,7 @@ return {
 		end,
 	},
 
+	-- Obsidian
 	{
 		"epwalsh/obsidian.nvim",
 		-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
@@ -51,9 +41,17 @@ return {
 		},
 		keys = {
 			{ "<leader>ap", "<cmd>lua vim.cmd('ObsidianPasteImg' .. os.time())<cr>", desc = "paste img" },
+			{ "<leader>ao", "<cmd>ObsidianOpen<cr>", desc = "obsidian open" },
 		},
 		opts = {
 			dir = "~/dev/docs/obsidian", -- no need to call 'vim.fn.expand' here
+			open_app_foreground = true,
+			follow_url_func = function(url)
+				-- Open the URL in the default web browser.
+				vim.fn.jobstart({ "open", url }) -- Mac OS
+				-- vim.fn.jobstart({"xdg-open", url})  -- linux
+			end,
+			use_advanced_uri = true,
 			daily_notes = {
 				-- Optional, if you keep daily notes in a separate directory.
 				folder = "dailies",
@@ -70,15 +68,28 @@ return {
 			},
 		},
 		config = function(_, opts)
+			vim.opt.conceallevel = 1
 			require("obsidian").setup(opts)
 		end,
 	},
 
+	-- 生成目录
 	{
 		"mzlogin/vim-markdown-toc",
 		ft = "markdown",
 		keys = {
-			{ "<leader>ao", "<cmd>GenTocMarked<cr>", desc = "gen toc" },
+			{ "<leader>ag", "<cmd>GenTocMarked<cr>", desc = "gen toc" },
 		},
+	},
+
+	-- 标题序号
+	{
+		"whitestarrain/md-section-number.nvim",
+		ft = "markdown",
+		config = function()
+			require("md_section_number").setup({
+				min_level = 2,
+			})
+		end,
 	},
 }
