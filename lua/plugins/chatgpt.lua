@@ -3,12 +3,14 @@ return {
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"nvim-lua/plenary.nvim",
+		"folke/trouble.nvim",
 		"nvim-telescope/telescope.nvim",
 	},
-	keys = {
-		{ "<leader>p", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
-	},
 	config = function()
-		require("chatgpt").setup()
+		require("chatgpt").setup({
+			openai_params = {
+				model = "gpt-4-turbo-preview",
+			},
+		})
 	end,
 }
