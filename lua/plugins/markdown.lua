@@ -32,8 +32,12 @@ return {
 	-- Obsidian
 	{
 		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
 		-- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-		event = { "BufReadPre " .. vim.fn.expand("~") .. "/dev/docs/obsidian/**.md" },
+		event = {
+			"BufReadPre " .. vim.fn.expand("~") .. "/dev/docs/obsidian/**.md",
+			"BufNewFile " .. vim.fn.expand("~") .. "/dev/docs/obsidian/**.md",
+		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"hrsh7th/nvim-cmp",
@@ -44,20 +48,49 @@ return {
 			{ "<leader>ao", "<cmd>ObsidianOpen<cr>", desc = "obsidian open" },
 		},
 		opts = {
-			dir = "~/dev/docs/obsidian", -- no need to call 'vim.fn.expand' here
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/dev/docs/obsidian",
+				},
+			},
+
 			open_app_foreground = true,
+
 			follow_url_func = function(url)
 				-- Open the URL in the default web browser.
 				vim.fn.jobstart({ "open", url }) -- Mac OS
 				-- vim.fn.jobstart({"xdg-open", url})  -- linux
 			end,
+
 			use_advanced_uri = true,
+
+			-- Optional, customize how markdown links are formatted.
+			markdown_link_func = function(opts)
+				local anchor = ""
+				local header = ""
+				if opts.anchor then
+					anchor = opts.anchor.anchor
+					header = require("obsidian.util").format_anchor_label(opts.anchor)
+				elseif opts.block then
+					anchor = "#" .. opts.block.id
+					header = "#" .. opts.block.id
+				end
+
+				local filename = opts.path:match("^.+/(.+)$")
+				return string.format("[%s%s](%s%s)", opts.label, header, filename, anchor)
+			end,
+
+			-- Either 'wiki' or 'markdown'.
+			preferred_link_style = "markdown",
+
 			daily_notes = {
 				-- Optional, if you keep daily notes in a separate directory.
 				folder = "dailies",
 				-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
 				template = "daily.md",
 			},
+
 			-- Optional, for templates (see below).
 			templates = {
 				subdir = "templates",

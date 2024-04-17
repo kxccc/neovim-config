@@ -31,6 +31,9 @@ return {
 			["<leader>e"] = {
 				name = "File Tree",
 			},
+			["<leader>b"] = {
+				name = "Leetcode",
+			},
 			["<leader>r"] = {
 				name = "Help",
 				p = {
