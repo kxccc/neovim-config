@@ -5,14 +5,6 @@ return {
 		opts = {},
 		keys = {
 			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
-			{
 				"S",
 				mode = { "n", "x", "o" },
 				function()
@@ -52,10 +44,22 @@ return {
 		dependencies = "folke/flash.nvim",
 		keys = {
 			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash-zh").jump({
+						chines_only = false,
+					})
+				end,
+				desc = "Flash Between Chinese",
+			},
+			{
 				"<leader>s",
 				mode = { "n", "x", "o" },
 				function()
-					require("flash-zh").jump()
+					require("flash-zh").jump({
+						chines_only = false,
+					})
 				end,
 				desc = "Flash Between Chinese",
 			},

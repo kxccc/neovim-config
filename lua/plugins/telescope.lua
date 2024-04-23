@@ -8,27 +8,13 @@ return {
 		{ "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find Todo" },
 	},
 	config = function()
-		local function flash(prompt_bufnr)
-			require("flash").jump({
-				pattern = "^",
-				label = { after = { 0, 0 } },
-				search = {
-					mode = "search",
-					exclude = {
-						function(win)
-							return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "TelescopeResults"
-						end,
-					},
-				},
-				action = function(match)
-					local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
-					picker:set_selection(match.pos[1] - 1)
-				end,
-			})
-		end
-
 		local trouble = require("trouble.providers.telescope")
 		local telescope = require("telescope")
+
+		local open_file = function(prompt_bufnr)
+			local selection = require("telescope.actions.state").get_selected_entry()
+			vim.cmd("!open " .. selection.value)
+		end
 
 		telescope.setup({
 			defaults = {
@@ -39,11 +25,11 @@ return {
 				end,
 
 				mappings = {
-					i = { ["<c-t>"] = trouble.smart_open_with_trouble, ["<c-s>"] = flash },
+					i = { ["<c-t>"] = trouble.smart_open_with_trouble },
 					n = {
-						s = flash,
 						["<c-t>"] = trouble.smart_open_with_trouble,
 						["<c-d>"] = require("telescope.actions").delete_buffer,
+						s = open_file,
 					},
 				},
 			},
