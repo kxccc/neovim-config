@@ -44,7 +44,7 @@ return {
 			"nvim-telescope/telescope.nvim",
 		},
 		keys = {
-			{ "<leader>ap", "<cmd>lua vim.cmd('ObsidianPasteImg' .. os.time())<cr>", desc = "paste img" },
+			{ "<leader>ap", "<cmd>lua vim.cmd('ObsidianPasteImg' .. os.time())<cr><cr>", desc = "paste img" },
 			{ "<leader>ao", "<cmd>ObsidianOpen<cr>", desc = "obsidian open" },
 		},
 		opts = {
@@ -65,24 +65,13 @@ return {
 
 			use_advanced_uri = true,
 
-			-- Optional, customize how markdown links are formatted.
-			markdown_link_func = function(opts)
-				local anchor = ""
-				local header = ""
-				if opts.anchor then
-					anchor = opts.anchor.anchor
-					header = require("obsidian.util").format_anchor_label(opts.anchor)
-				elseif opts.block then
-					anchor = "#" .. opts.block.id
-					header = "#" .. opts.block.id
-				end
-
-				local filename = opts.path:match("^.+/(.+)$")
-				return string.format("[%s%s](%s%s)", opts.label, header, filename, anchor)
-			end,
-
 			-- Either 'wiki' or 'markdown'.
 			preferred_link_style = "markdown",
+
+			note_path_func = function(spec)
+				local path = spec.dir / tostring(spec.title)
+				return path:with_suffix(".md")
+			end,
 
 			daily_notes = {
 				-- Optional, if you keep daily notes in a separate directory.
@@ -122,6 +111,30 @@ return {
 		config = function()
 			require("md_section_number").setup({
 				min_level = 2,
+			})
+		end,
+	},
+
+	-- 显示图片
+	{
+		"3rd/image.nvim",
+		ft = "markdown",
+		config = function()
+			require("image").setup({
+				integrations = {
+					markdown = {
+						resolve_image_path = function(document_path, image_path, fallback)
+							-- document_path is the path to the file that contains the image
+							-- image_path is the potentially relative path to the image. for
+							-- markdown it's `![](this text)`
+
+							-- you can call the fallback function to get the default behavior
+							-- print(document_path, image_path, vim.fn.getcwd())
+							return vim.fn.getcwd() .. "/" .. image_path
+							-- return fallback(document_path, image_path)
+						end,
+					},
+				},
 			})
 		end,
 	},

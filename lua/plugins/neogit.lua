@@ -1,6 +1,11 @@
 return {
 	"TimUntersberger/neogit",
-	dependencies = "nvim-lua/plenary.nvim",
+	-- TODO: 升级0.10后放开限制
+	tag = "v0.0.1",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"sindrets/diffview.nvim",
+	},
 	keys = {
 		{ "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" },
 	},
