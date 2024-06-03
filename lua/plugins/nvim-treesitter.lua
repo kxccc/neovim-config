@@ -9,7 +9,7 @@ return {
 			require("nvim-treesitter.install").prefer_git = true
 			require("nvim-treesitter.configs").setup({
 				-- A list of parser names, or "all"
-				ensure_installed = { "lua", "markdown", "markdown_inline", "vim", "regex", "bash", "org" },
+				ensure_installed = { "lua", "markdown", "markdown_inline", "vim", "regex", "bash" },
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,

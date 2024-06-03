@@ -25,9 +25,9 @@ return {
 				html = { require("formatter.filetypes.html").prettier },
 
 				markdown = {
-					-- 其他写法
 					function()
-						return require("formatter.filetypes.markdown").prettier()
+						-- return require("formatter.filetypes.markdown").prettier()
+						vim.fn.jobstart({ "open", "-g", "hammerspoon://markdown_format" })
 					end,
 				},
 

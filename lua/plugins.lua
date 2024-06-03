@@ -2,8 +2,12 @@ return {
 	-- 括号补全
 	{
 		"windwp/nvim-autopairs",
-		event = { "VeryLazy" },
-		opts = {},
+		event = { "InsertEnter" },
+		opts = {
+			fast_wrap = {
+				map = "<C-e>",
+			},
+		},
 	},
 
 	-- 注释
