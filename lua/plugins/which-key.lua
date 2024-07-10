@@ -22,6 +22,9 @@ return {
 			["<leader>a"] = {
 				name = "Markdown",
 			},
+			["<leader>o"] = {
+				name = "Open in",
+			},
 			["<leader>q"] = {
 				name = "Session",
 			},

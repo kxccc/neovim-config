@@ -26,6 +26,19 @@ vim.keymap.set("n", "<space>", "<C-w>", { remap = true })
 -- 复制到系统剪切板
 vim.keymap.set("n", "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
 
+-- open in xcode
+vim.keymap.set("n", "<leader>ox", function()
+	-- 当前文件
+	local current_file = vim.fn.expand("%:p")
+	-- 当前行
+	local current_line = vim.fn.line(".")
+	vim.fn.jobstart({
+		"open",
+		"-g",
+		string.format("hammerspoon://open_in_xcode?file=%s&line=%s", current_file, current_line),
+	})
+end, { desc = "Xcode" })
+
 -- 始终显示信号栏
 vim.opt.signcolumn = "yes"
 

@@ -46,6 +46,8 @@ return {
 		keys = {
 			{ "<leader>ap", "<cmd>lua vim.cmd('ObsidianPasteImg' .. os.time())<cr><cr>", desc = "paste img" },
 			{ "<leader>ao", "<cmd>ObsidianOpen<cr>", desc = "obsidian open" },
+			{ "<leader>al", "<cmd>ObsidianLinks<cr>", desc = "obsidian links" },
+			{ "<leader>ab", "<cmd>ObsidianBacklinks<cr>", desc = "obsidian back links" },
 		},
 		opts = {
 			workspaces = {
