@@ -1,14 +1,13 @@
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
+	dependences = { "echasnovski/mini.icons" },
 	config = function()
-		vim.o.timeout = true
-		vim.o.timeoutlen = 500
 		require("which-key").setup({})
 		local wk = require("which-key")
 		wk.register({
 			["<leader>x"] = {
-				name = "Touble",
+				name = "Trouble",
 			},
 			["<leader>c"] = {
 				name = "LSP",

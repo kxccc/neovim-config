@@ -23,6 +23,19 @@ end, { desc = "Close Buffer" })
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
 -- 切换窗口
 vim.keymap.set("n", "<space>", "<C-w>", { remap = true })
+
+-- 使用 Q 录制宏
+vim.keymap.set("n", "Q", "q", { remap = false, desc = "Record" })
+-- 使用 q 关闭窗口
+vim.keymap.set("n", "q", function()
+	local filetype = vim.bo.filetype
+	if filetype == "TelescopePrompt" then
+		vim.cmd("close!")
+		return
+	end
+	vim.cmd("close")
+end, { remap = false, desc = "Close" })
+
 -- 复制到系统剪切板
 vim.keymap.set("n", "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
 
@@ -49,9 +62,6 @@ set mouse=
 set noincsearch
 " 高亮当前行
 set cursorline
-" 使用 Q 录制宏
-nnoremap Q q
-nnoremap q <Nop>
 
 " 显示行号
 set number

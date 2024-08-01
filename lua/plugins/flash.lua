@@ -11,6 +11,18 @@ return {
 		},
 		keys = {
 			{
+				"<leader>s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump({
+						search = { mode = "search", max_length = 0 },
+						label = { after = { 0, 0 } },
+						pattern = "^",
+					})
+				end,
+				desc = "Jump to a Line",
+			},
+			{
 				"S",
 				mode = { "n", "x", "o" },
 				function()
@@ -51,16 +63,6 @@ return {
 		keys = {
 			{
 				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash-zh").jump({
-						chines_only = false,
-					})
-				end,
-				desc = "Flash Between Chinese",
-			},
-			{
-				"<leader>s",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash-zh").jump({

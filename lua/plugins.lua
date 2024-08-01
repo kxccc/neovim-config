@@ -91,4 +91,12 @@ return {
 		event = { "InsertEnter", "LspAttach" },
 		opts = {},
 	},
+
+	-- 运行代码片段
+	{
+		"michaelb/sniprun",
+		branch = "master",
+		build = "sh install.sh",
+		opts = {},
+	},
 }
