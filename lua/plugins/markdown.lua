@@ -65,6 +65,10 @@ return {
 				-- vim.fn.jobstart({"xdg-open", url})  -- linux
 			end,
 
+			follow_img_func = function(img)
+				vim.fn.jobstart({ "qlmanage", "-p", img }) -- Mac OS quick look preview
+			end,
+
 			use_advanced_uri = true,
 
 			-- Either 'wiki' or 'markdown'.

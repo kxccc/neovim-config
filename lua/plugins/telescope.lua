@@ -11,9 +11,9 @@ return {
 		local trouble = require("trouble.providers.telescope")
 		local telescope = require("telescope")
 
-		local open_file = function(prompt_bufnr)
+		local preview_file = function(prompt_bufnr)
 			local selection = require("telescope.actions.state").get_selected_entry()
-			vim.cmd("!open " .. selection.value)
+			vim.fn.jobstart({ "qlmanage", "-p", selection.value }) -- Mac OS quick look preview
 		end
 
 		local function flash(prompt_bufnr)
@@ -37,18 +37,16 @@ return {
 
 		telescope.setup({
 			defaults = {
-				-- Format path as "file.txt (path\to\file\)"
-				path_display = function(opts, path)
-					local tail = require("telescope.utils").path_tail(path)
-					return string.format("%s (%s)", tail, path), { { { 1, #tail }, "Constant" } }
-				end,
+				path_display = {
+					filename_first = {},
+				},
 
 				mappings = {
 					i = { ["<c-t>"] = trouble.smart_open_with_trouble },
 					n = {
 						["<c-t>"] = trouble.smart_open_with_trouble,
 						["<c-d>"] = require("telescope.actions").delete_buffer,
-						["<c-s>"] = open_file,
+						["<space>"] = preview_file,
 						s = flash,
 					},
 				},
