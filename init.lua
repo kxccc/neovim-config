@@ -21,8 +21,11 @@ vim.keymap.set("n", "<leader>w", function()
 end, { desc = "Close Buffer" })
 -- 终端返回普通模式
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
--- 切换窗口
+
+-- 切换
 vim.keymap.set("n", "<space>", "<C-w>", { remap = true })
+vim.keymap.set("n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" })
+vim.keymap.set("n", "[t", "<cmd>tabprevious<cr>", { desc = "Previous tab" })
 
 -- 使用 Q 录制宏
 vim.keymap.set("n", "Q", "q", { remap = false, desc = "Record" })

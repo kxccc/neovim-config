@@ -95,6 +95,7 @@ return {
 	-- 运行代码片段
 	{
 		"michaelb/sniprun",
+		event = "VeryLazy",
 		branch = "master",
 		build = "sh install.sh",
 		opts = {},

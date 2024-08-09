@@ -8,7 +8,6 @@ return {
 		{ "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find Todo" },
 	},
 	config = function()
-		local trouble = require("trouble.providers.telescope")
 		local telescope = require("telescope")
 
 		local preview_file = function(prompt_bufnr)
@@ -42,9 +41,9 @@ return {
 				},
 
 				mappings = {
-					i = { ["<c-t>"] = trouble.smart_open_with_trouble },
+					i = { ["<c-t>"] = require("trouble.sources.telescope").open },
 					n = {
-						["<c-t>"] = trouble.smart_open_with_trouble,
+						["<c-t>"] = require("trouble.sources.telescope").open,
 						["<c-d>"] = require("telescope.actions").delete_buffer,
 						["<space>"] = preview_file,
 						s = flash,
