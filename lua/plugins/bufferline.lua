@@ -5,6 +5,13 @@ return {
 	config = function()
 		vim.opt.termguicolors = true
 
+		-- 关闭缓冲区
+		vim.keymap.set("n", "<leader>w", function()
+			local id = vim.api.nvim_get_current_buf()
+			vim.cmd("BufferLineCyclePrev")
+			vim.cmd("bd " .. id)
+		end, { desc = "Close Buffer" })
+
 		vim.keymap.set("n", "gt", "<cmd>BufferLinePick<CR>", { silent = true, noremap = true })
 		vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
 		vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })

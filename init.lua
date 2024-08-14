@@ -13,12 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ";"
 require("lazy").setup("plugins")
 
--- 关闭缓冲区
-vim.keymap.set("n", "<leader>w", function()
-	local id = vim.api.nvim_get_current_buf()
-	vim.cmd("bNext")
-	vim.cmd("bd " .. id)
-end, { desc = "Close Buffer" })
 -- 终端返回普通模式
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
 
@@ -32,15 +26,34 @@ vim.keymap.set("n", "Q", "q", { remap = false, desc = "Record" })
 -- 使用 q 关闭窗口
 vim.keymap.set("n", "q", function()
 	local filetype = vim.bo.filetype
+	local buftype = vim.bo.buftype
 	if filetype == "TelescopePrompt" then
 		vim.cmd("close!")
 		return
 	end
+	if buftype == "" then
+		return
+	end
+
+	local mappings = vim.api.nvim_buf_get_keymap(0, "n")
+	for _, map in ipairs(mappings) do
+		if map.lhs == "<C-C>" then
+			vim.cmd("ChatGPT")
+			return
+		end
+	end
+
 	vim.cmd("close")
 end, { remap = false, desc = "Close" })
 
 -- 复制到系统剪切板
 vim.keymap.set("n", "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
+
+-- 命令模式后切换英文输入法
+vim.keymap.set("c", "<CR>", function()
+	vim.fn.jobstart({ "im-select", "com.apple.keylayout.ABC" })
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
+end, { desc = "Switch to English" })
 
 -- open in xcode
 vim.keymap.set("n", "<leader>ox", function()
