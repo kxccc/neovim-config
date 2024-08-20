@@ -62,9 +62,10 @@ vim.keymap.set("n", "<leader>ox", function()
 	-- 当前行
 	local current_line = vim.fn.line(".")
 	vim.fn.jobstart({
-		"open",
-		"-g",
-		string.format("hammerspoon://open_in_xcode?file=%s&line=%s", current_file, current_line),
+		"xed",
+		"-l",
+		current_line,
+		current_file,
 	})
 end, { desc = "Xcode" })
 
