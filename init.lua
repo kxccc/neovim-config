@@ -47,7 +47,7 @@ vim.keymap.set("n", "q", function()
 end, { remap = false, desc = "Close" })
 
 -- 复制到系统剪切板
-vim.keymap.set("n", "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
+vim.keymap.set({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
 
 -- 命令模式后切换英文输入法
 vim.keymap.set("c", "<CR>", function()

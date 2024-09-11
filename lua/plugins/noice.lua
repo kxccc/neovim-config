@@ -4,26 +4,6 @@ return {
 		-- FIX: popupmenu
 		-- https://github.com/folke/noice.nvim/issues/102
 		require("noice").setup({
-			routes = {
-				{
-					filter = {
-						find = "^Hop",
-					},
-					view = "mini",
-				},
-				{
-					filter = {
-						find = "^%[Obsidian",
-					},
-					view = "mini",
-				},
-				{
-					filter = {
-						find = "^Preview page",
-					},
-					view = "mini",
-				},
-			},
 			lsp = {
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {

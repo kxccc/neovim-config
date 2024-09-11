@@ -44,7 +44,10 @@ return {
 			{ "<leader>qd", [[<cmd>lua require("persistence").load()<cr>]], desc = "directory session" },
 			{ "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], desc = "last session" },
 		},
-		opts = {},
+		config = function()
+			vim.opt.sessionoptions = { "buffers", "curdir", "globals", "help", "tabpages", "winsize", "terminal" }
+			require("persistence").setup({})
+		end,
 	},
 
 	-- 平滑滚动

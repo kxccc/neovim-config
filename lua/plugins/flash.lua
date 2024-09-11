@@ -11,7 +11,23 @@ return {
 		},
 		keys = {
 			{
-				"<leader>s",
+				"<leader>sd",
+				mode = { "n" },
+				function()
+					require("flash").jump({
+						action = function(match, state)
+							vim.api.nvim_win_call(match.win, function()
+								vim.api.nvim_win_set_cursor(match.win, match.pos)
+								vim.cmd("Lspsaga peek_definition")
+							end)
+							state:restore()
+						end,
+					})
+				end,
+				desc = "Show Definition",
+			},
+			{
+				"<leader>ss",
 				mode = { "n", "x", "o" },
 				function()
 					require("flash").jump({
