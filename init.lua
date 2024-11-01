@@ -46,12 +46,18 @@ vim.keymap.set("n", "q", function()
 	vim.cmd("close")
 end, { remap = false, desc = "Close" })
 
+-- 取消搜索高亮
+vim.keymap.set("n", "<leader><esc>", "<cmd>nohlsearch<cr>", { desc = "No Highlight" })
+
 -- 复制到系统剪切板
 vim.keymap.set({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
 
 -- 命令模式后切换英文输入法
 vim.keymap.set("c", "<CR>", function()
-	vim.fn.jobstart({ "im-select", "com.apple.keylayout.ABC" })
+	local ok, _ = pcall(vim.fn.jobstart, { "im-select", "com.apple.keylayout.ABC" })
+	if not ok then
+		vim.api.nvim_err_writeln("找不到im-select")
+	end
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), "n", false)
 end, { desc = "Switch to English" })
 

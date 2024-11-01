@@ -80,7 +80,10 @@ return {
 		"zbirenbaum/copilot.lua",
 		event = "VeryLazy",
 		config = function()
-			vim.g.copilot_proxy = "agent.baidu.com:8891"
+			local http_proxy = vim.fn.getenv("http_proxy")
+			if http_proxy ~= vim.NIL then
+				vim.g.copilot_proxy = http_proxy
+			end
 			require("copilot").setup({
 				suggestion = { enabled = false },
 				panel = { enabled = false },

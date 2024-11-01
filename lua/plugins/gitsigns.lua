@@ -1,6 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	version = "release",
+	version = "*",
 	event = { "VeryLazy" },
 	config = function()
 		require("gitsigns").setup({
@@ -49,6 +49,9 @@ return {
 					gs.diffthis("~")
 				end, { desc = "diff repository" })
 				map("n", "<leader>gt", gs.toggle_deleted, { desc = "toggle deleted" })
+
+				-- Text object
+				map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 			end,
 		})
 	end,
