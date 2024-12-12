@@ -125,6 +125,7 @@ return {
 	{
 		"3rd/image.nvim",
 		ft = "markdown",
+		version = "*",
 		config = function()
 			require("image").setup({
 				integrations = {

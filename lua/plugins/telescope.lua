@@ -6,6 +6,7 @@ return {
 		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer" },
 		{ "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find Todo" },
+		{ "<leader>fs", "<cmd>Telescope git_status<cr>", desc = "Show Git Status" },
 	},
 	config = function()
 		local telescope = require("telescope")
