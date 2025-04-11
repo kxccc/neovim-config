@@ -43,6 +43,8 @@ return {
 				objc = { "clang-format" },
 				objcpp = { "clang-format" },
 				json = { "prettier" },
+				rust = { "rustfmt" },
+				swift = { "swiftformat" },
 
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
