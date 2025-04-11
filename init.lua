@@ -83,6 +83,9 @@ end, { desc = "Xcode" })
 -- 始终显示信号栏
 vim.opt.signcolumn = "yes"
 
+-- 忽略大小写
+vim.opt.ignorecase = true
+
 vim.cmd([[
 " 关闭鼠标
 set mouse=

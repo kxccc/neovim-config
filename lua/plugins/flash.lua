@@ -3,6 +3,9 @@ return {
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {
+			label = {
+				uppercase = false,
+			},
 			modes = {
 				search = {
 					enabled = true,
