@@ -4,7 +4,13 @@ return {
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
 		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
-		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffer" },
+		{
+			"<leader>fb",
+			function()
+				require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })
+			end,
+			desc = "Find Buffer",
+		},
 		{ "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find Todo" },
 		{ "<leader>fs", "<cmd>Telescope git_status<cr>", desc = "Show Git Status" },
 	},
