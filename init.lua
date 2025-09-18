@@ -57,6 +57,9 @@ vim.keymap.set("n", "<leader><esc>", "<cmd>nohlsearch<cr>", { desc = "No Highlig
 -- 复制到系统剪切板
 vim.keymap.set({ "n", "x" }, "<leader>y", [["+y]], { desc = "Copy to Clipboard" })
 
+-- 保存
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
+
 -- 命令模式后切换英文输入法
 vim.keymap.set("c", "<CR>", function()
 	local ok, _ = pcall(vim.fn.jobstart, { "im-select", "com.apple.keylayout.ABC" })

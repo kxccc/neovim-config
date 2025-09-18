@@ -5,6 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"sindrets/diffview.nvim",
 	},
+	lazy = false,
 	keys = {
 		{ "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" },
 	},

@@ -6,7 +6,7 @@ return {
 		vim.opt.termguicolors = true
 
 		-- 关闭缓冲区
-		vim.keymap.set("n", "<leader>w", function()
+		vim.keymap.set("n", "<leader>q", function()
 			local id = vim.api.nvim_get_current_buf()
 			vim.cmd("BufferLineCyclePrev")
 			vim.cmd("bd " .. id)

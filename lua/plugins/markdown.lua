@@ -12,7 +12,7 @@ return {
 			vim.g.mkdp_echo_preview_url = 1
 			vim.g.mkdp_port = "8855"
 			vim.g.mkdp_preview_options = {
-				uml = { imageFormat = "svg" },
+				uml = { server = "http://localhost:8080", imageFormat = "svg" },
 			}
 			vim.g.mkdp_images_path = vim.fn.getcwd()
 		end,

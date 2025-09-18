@@ -42,9 +42,12 @@ return {
 				cpp = { "clang-format" },
 				objc = { "clang-format" },
 				objcpp = { "clang-format" },
-				json = { "prettier" },
+				json = { "prettierd" },
 				rust = { "rustfmt" },
+				python = { "autopep8" },
 				swift = { "swiftformat" },
+				javascript = { "prettierd" },
+				typescript = { "prettierd" },
 
 				-- Use the "_" filetype to run formatters on filetypes that don't
 				-- have other formatters configured.
